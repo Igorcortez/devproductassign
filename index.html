@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Igor Cortez - Coursera Data Science - Develop Data Products Ass.</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Igor Cortez - Coursera Data Science - Develop Data Products Ass.">
+  <meta name="author" content="Igor Siqueira Cortez">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Igor Cortez - Coursera Data Science - Develop Data Products Ass.</h1>
+    <h2>Cluster Analysis of USA Arrests....</h2>
+    <p>Igor Siqueira Cortez<br/>CEO at Spagetti Monster Analytics Foundation - SMAF</p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>Why Clustering</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>First of all, clustering allows you to group data in an unsupervised learning method. That means that no labels are provided to classificate the data and classifications are built given the pattern observed in data. 
+Clustering can be useful for retrieving similar observations given that we already known one observation. 
+In the database that we use for this analysis, USAarrest, if we cluster that states with similar arrest pattern, and given a sucefull public policy to reduce criminilaty in an given state, we could know in advance what other states this specific policy could be worth/usefull too.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-2" style="background:;">
+  <hgroup>
+    <h2>Clustering and profile.</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>We are going to investigate the profile of arrests in the USA with state level data. We are considering variables like percent of people arrested by Rape, Muder, Assault and controlling for number of people living in urban area.  </p>
+
+<pre><code class="r">library(ggplot2)
+data(&quot;USArrests&quot;)
+head(USArrests,5)
+</code></pre>
+
+<pre><code>##            Murder Assault UrbanPop Rape
+## Alabama      13.2     236       58 21.2
+## Alaska       10.0     263       48 44.5
+## Arizona       8.1     294       80 31.0
+## Arkansas      8.8     190       50 19.5
+## California    9.0     276       91 40.6
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>How does the app help you understand how clustering works.</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The apps gives an exemple of how we can cluster states in USA, given the pattern of arrests type. In an exemple below we cluster using, murder, assault, Urban Population an Rape arrests.<br>
+<img src="assets/fig/unnamed-chunk-2-1.png" alt="plot of chunk unnamed-chunk-2">
+We can see that we could form 3 groups states given the pattern of Murder and Assalt. Low, Medium and High, since both variables are correlated. </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>How does the app help you explain the Arrest profile of Cities.</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Since we can choose the number of clusters and the variables that can be considered
+for the visualization, we can check how cities can be better grouped. And given that, we could differentiate security public policies for cities according to the pattern of criminality. </p>
+
+<p><img src="assets/fig/unnamed-chunk-3-1.png" alt="plot of chunk unnamed-chunk-3"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-5" style="background:;">
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Why Clustering'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Clustering and profile.'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='How does the app help you understand how clustering works.'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='How does the app help you explain the Arrest profile of Cities.'>
+         4
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=5 title='NA'>
+         5
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>

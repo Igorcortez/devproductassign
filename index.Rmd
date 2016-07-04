@@ -1,0 +1,62 @@
+---
+title       : Igor Cortez - Coursera Data Science - Develop Data Products Ass.
+subtitle    : Cluster Analysis of USA Arrests....
+author      : Igor Siqueira Cortez
+job         : CEO at Spagetti Monster Analytics Foundation - SMAF
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : []            # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+
+---
+## Why Clustering
+First of all, clustering allows you to group data in an unsupervised learning method. That means that no labels are provided to classificate the data and classifications are built given the pattern observed in data. 
+Clustering can be useful for retrieving similar observations given that we already known one observation. 
+In the database that we use for this analysis, USAarrest, if we cluster that states with similar arrest pattern, and given a sucefull public policy to reduce criminilaty in an given state, we could know in advance what other states this specific policy could be worth/usefull too.
+
+---
+## Clustering and profile.
+We are going to investigate the profile of arrests in the USA with state level data. We are considering variables like percent of people arrested by Rape, Muder, Assault and controlling for number of people living in urban area.  
+```{r, echo=TRUE}
+library(ggplot2)
+data("USArrests")
+head(USArrests,5)
+```
+
+---
+## How does the app help you understand how clustering works.
+The apps gives an exemple of how we can cluster states in USA, given the pattern of arrests type. In an exemple below we cluster using, murder, assault, Urban Population an Rape arrests.  
+```{r, echo=FALSE, fig.width = 4, fig.height = 4}
+clusters<-kmeans(USArrests,3, iter.max=200)
+#par(mar = c(5.1, 4.1, 0, 1))
+plot(USArrests$Murder,USArrests$Assault,
+     col = clusters$cluster,
+         pch = 20, cex = 3)
+points(clusters$centers, pch = 4, cex = 4, lwd = 4)
+```
+We can see that we could form 3 groups states given the pattern of Murder and Assalt. Low, Medium and High, since both variables are correlated. 
+
+---
+## How does the app help you explain the Arrest profile of Cities.
+
+Since we can choose the number of clusters and the variables that can be considered
+for the visualization, we can check how cities can be better grouped. And given that, we could differentiate security public policies for cities according to the pattern of criminality. 
+
+```{r, echo=FALSE,fig.width = 4, fig.height = 4}
+clusters<-kmeans(USArrests,5, iter.max=200)
+#par(mar = c(5.1, 4.1, 0, 1))
+plot(USArrests$Murder, USArrests$Rape,
+     col = clusters$cluster,
+         pch = 20, cex = 3)
+points(clusters$centers, pch = 4, cex = 4, lwd = 4)
+```
+
+---
+
+
+
+
+
+
